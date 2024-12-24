@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Searchable
   extend ActiveSupport::Concern
 
@@ -17,13 +15,13 @@ module Searchable
         query: {
           multi_match: {
             query: query,
-            fields: %w[title content],
-            fuzziness: 'AUTO'
+            fields: ['title','content'],
+            fuzziness: "AUTO"
           }
         }
       }
 
-      __elasticsearch__.search(params).records.to_a
+      self.__elasticsearch__.search(params).records.to_a
     end
   end
 end
