@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+100.times do
+  Article.find_or_create_by(title: Faker::Quote.famous_last_words, content: Faker::Quotes::Rajnikanth.joke)
+end
